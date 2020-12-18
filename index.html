@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Hatschi</title>
+  <meta name="description" content="A symptom tracking app for common respiratory flu symptoms, especially COVID-19 ">
+
+  <link href="https://fonts.googleapis.com/css?family=Nunito:600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script>
+  <!--<script src="js/model.js"></script>-->
+
+  <script src="https://cdn.jsdelivr.net/npm/dexie@2.0.4/dist/dexie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
+</head>
+
+<body>
+  <div id="header">
+    <div id="header-inner">
+      <h1>Hatschi</h1>
+      <div id="status" class="loading">
+        <div id="status-loading">Lade Modell...</div>
+        <div id="status-listening">
+          <div class="ring-container">
+            <div class="ringring"></div>
+            <div class="circle"></div>
+          </div>
+          <span>Analyse aktiv</span>
+        </div>
+        <div id="status-stopped">Analyse gestoppt</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="content">
+    <div id="health" class="good">
+      <div class="good">Ihre Symptome sind im Normbereich, kein besonderes Verhalten erforderlich. Bleiben Sie gesund!</div>
+      <div class="warn">Ihre Symptome zeigen eine bedenkliche Verschlechterung. Vermeiden sie Kontakt mit anderen Personen.</div>
+      <div class="bad">Sie haben zuletzt enorm häufig gehustet. Zudem klang Ihr Husten sehr trocken. Kontaktieren Sie bitte telefonisch Ihren Arzt und/oder das Gesundheitsamt um weitere Schritte einzuleiten.</div>
+    </div>
+
+    <div id="charts">
+      <ul id="resolutions">
+        <li>Letzte 7 Tage</li>
+      </ul>
+      <div id="chart-container"><canvas id="chart"></canvas></div>
+    </div>
+
+    <div id="testdata">
+      <h2>Beispieldatensätze</h2>
+      <ul>
+        <li id="bsp1">Beispiel 1</li>
+        <li id="bsp2">Beispiel 2</li>
+        <li id="bsp3">Beispiel 3</li>
+        <li id="random">Zufällige Daten</li>
+        <li id="reset">Daten zurücksetzen</li>
+      </ul>
+    </div>
+
+    <div id="disclaimer">
+      Nichts, was in den Inhalten des Anbieters enthalten ist, ist dazu bestimmt, Krankheiten zu diagnostizieren oder zu behandeln. Der Anbieter ist kein Arzt und gibt keine medizinischen oder gesundheitlichen Heilversprechen ab.
+      Die Inhalte dürfen nicht als Grundlage zur eigenständigen Diagnose und Beginn, Änderung oder Beendigung einer Behandlung von Krankheiten verwendet werden.
+      Konsultieren Sie bei gesundheitlichen Fragen oder Beschwerden immer ihren behandelnden Arzt.
+    </div>
+    <a href="https://wirvsvirushackathon.org/"><img id="project" src="css/wvsv.png" /></a>
+  </div>
+  <script src="js/aggregation.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
